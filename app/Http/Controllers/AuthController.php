@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 use  App\Http\Controllers\DoctorController;
 use  App\Http\Controllers\ClinicController;
 
-// use App\Models\User;
+use App\Models\User;
 // use App\Models\Doctor;
 // use App\Models\Addresses;
 // use App\Models\MedicalFormAnswered;
@@ -55,6 +55,7 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
+            'phone' => $request['phone'],
             'password' => password_hash($request['password'], PASSWORD_DEFAULT)
         ]);
         $array['user'] = $user;
@@ -104,6 +105,10 @@ class AuthController extends Controller
         $array['user'] = $user;
 
         return $array;
+    }
+    public function Teste123(){
+        $senhaCrip = bcrypt('123456');
+        return $senhaCrip;
     }
 
 }
